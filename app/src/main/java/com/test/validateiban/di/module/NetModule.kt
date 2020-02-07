@@ -4,7 +4,9 @@ package com.test.validateiban.di.module
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.test.validateiban.BASE_URL
+import com.test.validateiban.PASSWORD
 import com.test.validateiban.TIMEOUT_REQUEST
+import com.test.validateiban.USERNAME
 import com.test.validateiban.api.BasicAuthInterceptor
 import com.test.validateiban.api.NetworkServices
 import dagger.Module
@@ -26,28 +28,10 @@ class NetModule {
     @Provides
     fun provideGson(): Gson = GsonBuilder().create()
 
-//    val tmdbApiInterceptor: Interceptor by lazy {
-//        Interceptor { chain ->
-//
-//            val original = chain.request()
-//            val originalHttpUrl = original.url()
-//
-//            val url = originalHttpUrl.newBuilder()
-//                .addQueryParameter("user", "106901")
-//                .addQueryParameter("password", "MTYzYmZkNjZiZmJiMTg2M2IwNjU2Nzk5NzI5OTVjNGY")
-//                .build()
-//
-//            val reqBuilder = original.newBuilder()
-//                .url(url)
-//            chain.proceed(reqBuilder.build())
-//        }
-//    }
-
-
 
     @Provides
     fun provideHttpClient(): OkHttpClient = OkHttpClient.Builder()
-        .addInterceptor(BasicAuthInterceptor("106901", "MmU4MDlkYWRhYzc1ZTRhMzYxMTVjNDg4ODNiNzcxNWE="))
+        .addInterceptor(BasicAuthInterceptor(USERNAME, PASSWORD))
         .addInterceptor(interceptor.setLevel(HttpLoggingInterceptor.Level.BODY))
             .connectTimeout(TIMEOUT_REQUEST, TimeUnit.SECONDS)
             .readTimeout(TIMEOUT_REQUEST, TimeUnit.SECONDS)

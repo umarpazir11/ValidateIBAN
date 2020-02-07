@@ -9,8 +9,9 @@ import javax.inject.Singleton
 @Module
 class RepositoryModule {
 
+
     @Provides
     @Singleton
-    fun provideUserRepository(sixtApiService: NetworkServices) = CarsRepository(sixtApiService)
+    fun provideUserRepository(bankApiService: NetworkServices) = CarsRepository(bankApiService)
 
 }
