@@ -1,22 +1,23 @@
 package com.test.validateiban.api.repo
 
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import com.test.validateiban.api.NetworkServices
-import com.test.validateiban.di.module.OBSERVER_ON
-import com.test.validateiban.di.module.RxJavaModule
-import com.test.validateiban.di.module.SUBCRIBER_ON
+import com.test.validateiban.ui.model.Bic
+import com.test.validateiban.ui.model.Bics
 import io.reactivex.Scheduler
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
-import javax.inject.Named
 
 
-class CarsRepository @Inject constructor (private val networkServices : NetworkServices) {
+class BankRepository @Inject constructor (private val networkServices : NetworkServices) {
 
 
+    val  bics: MutableLiveData<List<Bic>?> = MutableLiveData()
 
-    fun getBis(subscriberOn: Scheduler,observerOn: Scheduler,disposable: CompositeDisposable) {
-        disposable.addAll(this.networkServices.getBlz("70020270")
+    fun getBankRoutingCodes(routingCode: String,subscriberOn: Scheduler,
+                            observerOn: Scheduler,disposable: CompositeDisposable) {
+        disposable.addAll(this.networkServices.getBankRoutingCodes(routingCode)
             .subscribeOn(subscriberOn)
             .observeOn(observerOn)
             .doOnSubscribe {
@@ -31,6 +32,7 @@ class CarsRepository @Inject constructor (private val networkServices : NetworkS
             .subscribe(
                 {
                     Log.i("result", it.code)
+                    bics.postValue(it.data.bics)
                 },
                 {
                     it.printStackTrace()

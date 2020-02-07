@@ -1,7 +1,7 @@
 package com.test.validateiban.di.module
 
 import com.test.validateiban.api.NetworkServices
-import com.test.validateiban.api.repo.CarsRepository
+import com.test.validateiban.api.repo.BankRepository
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -12,6 +12,6 @@ class RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideUserRepository(bankApiService: NetworkServices) = CarsRepository(bankApiService)
+    fun provideUserRepository(bankApiService: NetworkServices) = BankRepository(bankApiService)
 
 }
