@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.test.validateiban.R
 import com.test.validateiban.databinding.FragmentRoutingCodesBinding
+import com.test.validateiban.databinding.FragmentRoutingCodesItemBinding
 import com.test.validateiban.ui.routingcode.model.Bic
 
 /**
@@ -19,7 +20,7 @@ class RoutingCodesRecyclerViewAdapter(val itemListener: RoutingCodesItemListener
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
         val layoutInflater = LayoutInflater.from(parent.context)
-        val binding = DataBindingUtil.inflate<FragmentRoutingCodesBinding>(layoutInflater, R.layout.fragment_routing_codes, parent, false)
+        val binding = DataBindingUtil.inflate<FragmentRoutingCodesItemBinding>(layoutInflater, R.layout.fragment_routing_codes_item, parent, false)
         context = parent.context
         return ViewHolder(binding)
     }
@@ -28,6 +29,7 @@ class RoutingCodesRecyclerViewAdapter(val itemListener: RoutingCodesItemListener
         val item = bicList[position]
         holder.binding.tvName.text = item.bankName
         holder.binding.tvLocation.text = item.location
+        holder.binding.tvBicCode.text = item.bicCode
         holder.binding.codes = item
         holder.itemView.setOnClickListener{
             itemListener.onRoutingCodeItemClick(item)
@@ -38,7 +40,7 @@ class RoutingCodesRecyclerViewAdapter(val itemListener: RoutingCodesItemListener
         return if (::bicList.isInitialized) bicList.size else 0
     }
 
-    inner class ViewHolder(val binding: FragmentRoutingCodesBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class ViewHolder(val binding: FragmentRoutingCodesItemBinding) : RecyclerView.ViewHolder(binding.root)
 
     fun updateBicList(bicList: List<Bic>) {
         this.bicList = bicList

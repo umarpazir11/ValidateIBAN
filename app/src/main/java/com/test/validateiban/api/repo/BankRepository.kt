@@ -1,6 +1,5 @@
 package com.test.validateiban.api.repo
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.test.validateiban.api.NetworkServices
 import com.test.validateiban.ui.ibanbic.model.IBAN
@@ -13,10 +12,12 @@ import javax.inject.Inject
 
 class BankRepository @Inject constructor(private val networkServices: NetworkServices) {
 
-
     val bicsResponse: MutableLiveData<List<Bic>?> = MutableLiveData()
     val postCodeResponse: MutableLiveData<PostCodeResponse> = MutableLiveData()
     val ibanResponse: MutableLiveData<IBAN> = MutableLiveData()
+
+    val isLoading: MutableLiveData<Boolean> = MutableLiveData()
+    val errorMessage: MutableLiveData<String?> = MutableLiveData()
 
     fun getBankRoutingCodes(
         routingCode: String, subscriberOn: Scheduler,
@@ -26,21 +27,25 @@ class BankRepository @Inject constructor(private val networkServices: NetworkSer
             .subscribeOn(subscriberOn)
             .observeOn(observerOn)
             .doOnSubscribe {
-                //this.isLoading.value = true
+                this.isLoading.value = true
             }
             .doOnComplete {
-                //this.isLoading.value = false
+                this.isLoading.value = false
             }
             .doOnError {
-                //this.isLoading.value = false
+                this.isLoading.value = false
+                it.printStackTrace()
             }
             .subscribe(
                 {
-                    Log.i("result", it.code)
+                    this.isLoading.value = false
                     bicsResponse.postValue(it.data.bics)
                 },
                 {
+                    this.isLoading.value = false
                     it.printStackTrace()
+                    this.errorMessage.value = it.message
+
                 }
             ))
     }
@@ -53,21 +58,26 @@ class BankRepository @Inject constructor(private val networkServices: NetworkSer
             .subscribeOn(subscriberOn)
             .observeOn(observerOn)
             .doOnSubscribe {
-                //this.isLoading.value = true
+                this.isLoading.value = true
             }
             .doOnComplete {
-                //this.isLoading.value = false
+                this.isLoading.value = false
             }
             .doOnError {
-                //this.isLoading.value = false
+                this.isLoading.value = false
+
+                it.printStackTrace()
             }
             .subscribe(
                 {
-                    Log.i("result", it.code)
+                    this.isLoading.value = false
                     ibanResponse.postValue(it)
                 },
                 {
+                    this.isLoading.value = false
                     it.printStackTrace()
+                    this.errorMessage.value = it.message
+
                 }
             ))
     }
@@ -80,20 +90,23 @@ class BankRepository @Inject constructor(private val networkServices: NetworkSer
             .subscribeOn(subscriberOn)
             .observeOn(observerOn)
             .doOnSubscribe {
-                //this.isLoading.value = true
+                this.isLoading.value = true
             }
             .doOnComplete {
-                //this.isLoading.value = false
+                this.isLoading.value = false
             }
             .doOnError {
-                //this.isLoading.value = false
+                this.isLoading.value = false
+                it.printStackTrace()
             }
             .subscribe(
                 {
-                    Log.i("result", it.code)
+                    this.isLoading.value = false
                     ibanResponse.postValue(it)
                 },
                 {
+                    this.isLoading.value = false
+                    this.errorMessage.value = it.message
                     it.printStackTrace()
                 }
             ))
@@ -108,24 +121,26 @@ class BankRepository @Inject constructor(private val networkServices: NetworkSer
             .subscribeOn(subscriberOn)
             .observeOn(observerOn)
             .doOnSubscribe {
-                //this.isLoading.value = true
+                this.isLoading.value = true
             }
             .doOnComplete {
-                //this.isLoading.value = false
+                this.isLoading.value = false
             }
             .doOnError {
-                //this.isLoading.value = false
+                this.isLoading.value = false
+                it.printStackTrace()
             }
             .subscribe(
                 {
-                    Log.i("result", it.code)
+                    this.isLoading.value = false
                     postCodeResponse.postValue(it)
                 },
                 {
+                    this.isLoading.value = false
+                    this.errorMessage.value = it.message
                     it.printStackTrace()
                 }
             ))
     }
-
 
 }

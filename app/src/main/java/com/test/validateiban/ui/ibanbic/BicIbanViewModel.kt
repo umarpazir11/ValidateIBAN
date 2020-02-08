@@ -1,5 +1,6 @@
 package com.test.validateiban.ui.ibanbic
 
+import androidx.lifecycle.MutableLiveData
 import com.test.validateiban.api.repo.BankRepository
 import com.test.validateiban.base.BaseViewModel
 import com.test.validateiban.di.module.OBSERVER_ON
@@ -12,6 +13,15 @@ class BicIbanViewModel@Inject constructor(private val bankRepository: BankReposi
                                           @param:Named(SUBCRIBER_ON) private val subscriberOn: Scheduler,
                                           @param:Named(OBSERVER_ON) private val observerOn: Scheduler
 ) : BaseViewModel() {
+
+    val ibanResponse = bankRepository.ibanResponse
+
+    val errorMessage = bankRepository.errorMessage
+    val isLoading = bankRepository.isLoading
+
+    init {
+        this.isLoading.value = false
+    }
 
     fun validateIBAN(iban: String) {
         this.bankRepository.validateIBAN(
@@ -31,6 +41,5 @@ class BicIbanViewModel@Inject constructor(private val bankRepository: BankReposi
         )
     }
 
-    val ibanResponse = bankRepository.ibanResponse
 
 }

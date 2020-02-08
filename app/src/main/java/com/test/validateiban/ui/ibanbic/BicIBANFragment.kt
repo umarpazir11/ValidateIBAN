@@ -12,7 +12,6 @@ class BicIBANFragment : BaseFragment<BicIbanViewModel, BicIbanFragmentBinding>()
         fun newInstance() = BicIBANFragment()
     }
 
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         binding.btnValidate.setOnClickListener{
@@ -23,11 +22,11 @@ class BicIBANFragment : BaseFragment<BicIbanViewModel, BicIbanFragmentBinding>()
             }
         }
 
-        viewModel.ibanResponse.observe(this, Observer {
+        viewModel.ibanResponse.observe(viewLifecycleOwner, Observer {
             if(binding.editText.text.toString().trim().length>11) {
-                binding.tvResponse.text = "Code: " + it.code + "\nIBAN: " + it.data.iban
+                binding.tvResponse.text = getString(R.string.iban_response,it.code,it.data.iban)
             }else{
-                binding.tvResponse.text = "Code: " + it.code + "\nBIC: " + it.data.bic
+                binding.tvResponse.text = getString(R.string.bic_response,it.code,it.data.bic)
             }
         })
     }

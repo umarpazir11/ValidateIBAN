@@ -12,7 +12,6 @@ class PostCodeFragment : BaseFragment<PostCodeViewModel,PostCodeFragmentBinding>
         fun newInstance() = PostCodeFragment()
     }
 
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
@@ -21,8 +20,8 @@ class PostCodeFragment : BaseFragment<PostCodeViewModel,PostCodeFragmentBinding>
                 binding.editTextPostCode.text.toString())
         }
 
-        viewModel.postCodeResponse.observe(this, Observer {
-            binding.tvResponse.text = "Code: "+ it.code +"\nPost Code: "+it.data.postCode
+        viewModel.postCodeResponse.observe(viewLifecycleOwner, Observer {
+            binding.tvResponse.text = getString(R.string.post_code_response,it.code,it.data.postCode)
         })
     }
 

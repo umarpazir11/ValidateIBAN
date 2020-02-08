@@ -14,6 +14,14 @@ class SearchRoutingCodeViewModel @Inject constructor(
     @param:Named(OBSERVER_ON) private val observerOn: Scheduler
 ) : BaseViewModel() {
 
+    val bankData = bankRepository.bicsResponse
+
+    val isLoading = bankRepository.isLoading
+
+    init {
+        this.isLoading.value = false
+    }
+
     fun fetchBics(routingCode: String) {
         this.bankRepository.getBankRoutingCodes(
             routingCode,
@@ -23,5 +31,4 @@ class SearchRoutingCodeViewModel @Inject constructor(
         )
     }
 
-    val bankData = bankRepository.bicsResponse
 }
