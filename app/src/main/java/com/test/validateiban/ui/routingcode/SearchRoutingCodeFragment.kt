@@ -1,19 +1,23 @@
-package com.test.validateiban.ui.main
+package com.test.validateiban.ui.routingcode
 
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.Observer
-import androidx.navigation.NavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.test.validateiban.R
 import com.test.validateiban.base.BaseFragment
 import com.test.validateiban.databinding.MainFragmentBinding
-import com.test.validateiban.ui.model.Bic
+import com.test.validateiban.ui.routingcode.model.Bic
 
-class MainFragment : BaseFragment<MainViewModel, MainFragmentBinding>(),
+class SearchRoutingCodeFragment : BaseFragment<SearchRoutingCodeViewModel, MainFragmentBinding>(),
     RoutingCodesRecyclerViewAdapter.RoutingCodesItemListener {
-    private lateinit var navController: NavController
+
+    companion object {
+        fun newInstance() = SearchRoutingCodeFragment()
+    }
+
     private lateinit var adapter: RoutingCodesRecyclerViewAdapter
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
@@ -36,8 +40,8 @@ class MainFragment : BaseFragment<MainViewModel, MainFragmentBinding>(),
     override val layoutRes: Int
         get() = R.layout.main_fragment
 
-    override fun getViewModel(): Class<MainViewModel> {
-        return MainViewModel::class.java
+    override fun getViewModel(): Class<SearchRoutingCodeViewModel> {
+        return SearchRoutingCodeViewModel::class.java
     }
 
     override fun onRoutingCodeItemClick(bic: Bic) {

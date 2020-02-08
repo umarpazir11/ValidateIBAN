@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.postcode.PostCodeFragment">
+
+
+    <EditText
+        android:id="@+id/editTextPostCode"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:ems="10"
+        android:hint="@string/enter_post_code"
+        android:inputType="textPostalAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextCountryCode"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:hint="@string/provide_two_letters_country_code"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/editTextPostCode"
+        app:layout_constraintStart_toStartOf="@+id/editTextPostCode"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPostCode" />
+
+    <TextView
+        android:id="@+id/tvResponse"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#673AB7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnValidate" />
+
+    <Button
+        android:id="@+id/btnValidate"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/validate"
+        app:layout_constraintEnd_toEndOf="@+id/editTextCountryCode"
+        app:layout_constraintStart_toStartOf="@+id/editTextCountryCode"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCountryCode" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -7,7 +7,7 @@
         <import type="android.view.View" />
         <variable
             name="codes"
-            type="com.test.validateiban.ui.model.Bic" />
+            type="com.test.validateiban.ui.routingcode.model.Bic" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

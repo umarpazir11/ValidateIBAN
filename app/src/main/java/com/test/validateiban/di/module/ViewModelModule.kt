@@ -5,7 +5,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.test.validateiban.di.ViewModelKey
 
 import com.test.validateiban.di.factory.ViewModelFactory
-import com.test.validateiban.ui.main.MainViewModel
+import com.test.validateiban.ui.ibanbic.BicIbanViewModel
+import com.test.validateiban.ui.postcode.PostCodeViewModel
+import com.test.validateiban.ui.routingcode.SearchRoutingCodeViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -19,8 +21,18 @@ abstract class ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(MainViewModel::class)
-    abstract fun mainViewModel(viewModel: MainViewModel): ViewModel
+    @ViewModelKey(SearchRoutingCodeViewModel::class)
+    abstract fun mainViewModel(viewModel: SearchRoutingCodeViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(PostCodeViewModel::class)
+    abstract fun postCodeViewModel(viewModel: PostCodeViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(BicIbanViewModel::class)
+    abstract fun bicIbanViewModel(viewModel: BicIbanViewModel): ViewModel
 
 }
 

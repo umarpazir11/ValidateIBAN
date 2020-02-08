@@ -1,4 +1,4 @@
-package com.test.validateiban.ui.main
+package com.test.validateiban.ui.routingcode
 
 import android.content.Context
 import androidx.recyclerview.widget.RecyclerView
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.test.validateiban.R
 import com.test.validateiban.databinding.FragmentRoutingCodesBinding
-import com.test.validateiban.ui.model.Bic
+import com.test.validateiban.ui.routingcode.model.Bic
 
 /**
  * [RecyclerView.Adapter] that can display a [Bic]

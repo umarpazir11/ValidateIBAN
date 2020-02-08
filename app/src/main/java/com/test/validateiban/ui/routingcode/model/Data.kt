@@ -1,4 +1,4 @@
-package com.test.validateiban.ui.model
+package com.test.validateiban.ui.routingcode.model
 
 data class Data(
     val bankName: String,
