@@ -1,7 +1,7 @@
 package com.test.validateiban.di.bulider
 
 
-import com.test.validateiban.MainActivity
+import com.test.validateiban.BanksInfoActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -9,7 +9,7 @@ import dagger.android.ContributesAndroidInjector
 abstract class ActivityBuilderModule {
 
     @ContributesAndroidInjector(modules = [FragmentBuilderModule::class])
-    internal abstract fun mainActivity(): MainActivity
+    internal abstract fun mainActivity(): BanksInfoActivity
 
 
 

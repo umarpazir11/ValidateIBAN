@@ -1,40 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout>
 
     <data>
+
         <import type="android.view.View" />
         <variable
-            name="codes"
-            type="com.test.validateiban.ui.model.Bic" />
+            name="viewModel"
+            type="com.test.validateiban.ui.routingcode.SearchRoutingCodeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp">
+        android:layout_height="match_parent"
+        tools:context=".ui.routingcode.SearchRoutingCodeFragment">
 
-        <TextView
-            android:id="@+id/tv_name"
+        <EditText
+            android:id="@+id/editTextRoutingCode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:textSize="18sp"
-            android:textStyle="bold"
+            android:layout_marginStart="93dp"
+            android:layout_marginLeft="93dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="105dp"
+            android:layout_marginRight="105dp"
+            android:ems="10"
+            android:hint="@string/enter_bank_routing_code"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Bank Name" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_location"
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/btnSearch"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="@+id/tv_name"
-            app:layout_constraintTop_toBottomOf="@+id/tv_name"
-            tools:text="TextView" />
+            android:layout_marginBottom="8dp"
+            android:text="@string/find"
+            app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+            app:layout_constraintEnd_toEndOf="@+id/editTextRoutingCode"
+            app:layout_constraintStart_toStartOf="@+id/editTextRoutingCode"
+            app:layout_constraintTop_toBottomOf="@+id/editTextRoutingCode" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnSearch" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
