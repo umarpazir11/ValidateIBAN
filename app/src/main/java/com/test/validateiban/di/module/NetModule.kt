@@ -11,7 +11,6 @@ import com.test.validateiban.api.BasicAuthInterceptor
 import com.test.validateiban.api.NetworkServices
 import dagger.Module
 import dagger.Provides
-import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

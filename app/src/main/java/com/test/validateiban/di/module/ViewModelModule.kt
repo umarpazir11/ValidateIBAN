@@ -22,7 +22,7 @@ abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(SearchRoutingCodeViewModel::class)
-    abstract fun mainViewModel(viewModel: SearchRoutingCodeViewModel): ViewModel
+    abstract fun searchRountingCodeViewModel(viewModel: SearchRoutingCodeViewModel): ViewModel
 
     @Binds
     @IntoMap

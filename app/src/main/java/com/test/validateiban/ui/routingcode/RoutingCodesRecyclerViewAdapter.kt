@@ -6,16 +6,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.test.validateiban.R
-import com.test.validateiban.databinding.FragmentRoutingCodesBinding
 import com.test.validateiban.databinding.FragmentRoutingCodesItemBinding
 import com.test.validateiban.ui.routingcode.model.Bic
 
 /**
  * [RecyclerView.Adapter] that can display a [Bic]
  */
-class RoutingCodesRecyclerViewAdapter(val itemListener: RoutingCodesItemListener) : RecyclerView.Adapter<RoutingCodesRecyclerViewAdapter.ViewHolder>() {
+class RoutingCodesRecyclerViewAdapter(private val itemListener: RoutingCodesItemListener) : RecyclerView.Adapter<RoutingCodesRecyclerViewAdapter.ViewHolder>() {
 
-    lateinit var context: Context
+    private lateinit var context: Context
     private lateinit var bicList: List<Bic>
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 

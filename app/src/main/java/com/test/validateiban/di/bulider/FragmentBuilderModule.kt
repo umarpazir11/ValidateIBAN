@@ -10,7 +10,7 @@ import dagger.android.ContributesAndroidInjector
 abstract class FragmentBuilderModule {
 
     @ContributesAndroidInjector
-    internal abstract fun mainFragment(): SearchRoutingCodeFragment
+    internal abstract fun searchRoutingCodeFragment(): SearchRoutingCodeFragment
 
     @ContributesAndroidInjector
     internal abstract fun postCodeFragment(): PostCodeFragment

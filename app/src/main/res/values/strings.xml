@@ -7,8 +7,6 @@
     <string name="tab_text_1">Routing Code</string>
     <string name="tab_text_2">IBAN/BIC</string>
     <string name="tab_text_3">PostCode</string>
-    <string name="pm_invalid_iban">This is invaild IBAN number.</string>
-    <string name="pm_invalid_bic">This is invalid BIC number.</string>
     <string name="enter_iban_or_bic">Enter IBAN or BIC</string>
     <string name="provide_two_letters_country_code">Provide two letters country code.(AT, BE, DE, FR, IT, LU, NL or PL)</string>
     <string name="enter_post_code">Enter post code</string>
@@ -16,6 +14,7 @@
     <string name="post_code_response">Code: %s \nPost Code: %s</string>
     <string name="iban_response">Code: %s \nIBAN: %s</string>
     <string name="bic_response">Code: %s \nBIC: %s</string>
+    <string name="validation_routing_text">Please enter valid routing code.</string>
 
 
 </resources>
