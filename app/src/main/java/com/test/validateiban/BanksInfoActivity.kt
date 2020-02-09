@@ -1,13 +1,11 @@
 package com.test.validateiban
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayout
 import androidx.viewpager.widget.ViewPager
 import com.test.validateiban.base.BaseActivity
 import com.test.validateiban.databinding.ActivityBanksInfoBinding
 import com.test.validateiban.ui.SectionsPagerAdapter
-import dagger.android.AndroidInjector
 
 class BanksInfoActivity : BaseActivity<ActivityBanksInfoBinding>() {
 

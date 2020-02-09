@@ -17,6 +17,8 @@ class SearchRoutingCodeViewModel @Inject constructor(
     val bankData = bankRepository.bicsResponse
 
     val isLoading = bankRepository.isLoading
+    val errorMessage = bankRepository.errorMessage
+
 
     init {
         this.isLoading.value = false

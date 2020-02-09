@@ -2,6 +2,7 @@ package com.test.validateiban.ui.routingcode
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -23,9 +24,11 @@ class SearchRoutingCodeFragment : BaseFragment<SearchRoutingCodeViewModel, Fragm
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        binding.editTextRoutingCode.setText("70020270")
         binding.btnSearch.setOnClickListener {
-            viewModel.fetchBics(binding.editTextRoutingCode.text.toString())
+            if(binding.editTextRoutingCode.text.trim().toString().isNotEmpty())
+                viewModel.fetchBics(binding.editTextRoutingCode.text.trim().toString())
+            else
+                Toast.makeText(requireContext(),getString(R.string.validation_routing_text),Toast.LENGTH_LONG).show()
         }
 
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())

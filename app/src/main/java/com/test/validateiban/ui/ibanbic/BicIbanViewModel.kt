@@ -1,6 +1,5 @@
 package com.test.validateiban.ui.ibanbic
 
-import androidx.lifecycle.MutableLiveData
 import com.test.validateiban.api.repo.BankRepository
 import com.test.validateiban.base.BaseViewModel
 import com.test.validateiban.di.module.OBSERVER_ON
