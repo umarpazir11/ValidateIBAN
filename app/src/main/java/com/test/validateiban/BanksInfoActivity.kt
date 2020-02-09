@@ -7,6 +7,9 @@ import com.test.validateiban.base.BaseActivity
 import com.test.validateiban.databinding.ActivityBanksInfoBinding
 import com.test.validateiban.ui.SectionsPagerAdapter
 
+/*
+ *
+ */
 class BanksInfoActivity : BaseActivity<ActivityBanksInfoBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

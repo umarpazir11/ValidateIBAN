@@ -9,7 +9,10 @@ import io.reactivex.Scheduler
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
-
+/**
+ * For Handling all data from APIs
+ * @property networkServices is interface for API Calls
+ */
 class BankRepository @Inject constructor(private val networkServices: NetworkServices) {
 
     val bicsResponse: MutableLiveData<List<Bic>?> = MutableLiveData()

@@ -21,8 +21,10 @@ import dagger.android.support.AndroidSupportInjection
 /**
  * File Description
  *
+ * Base for all Fragments
  *
- * Author: Umer
+ * @param V is the ViewModel
+ * @param D is layout view binding
  */
 abstract class BaseFragment<V : ViewModel, D : ViewDataBinding> : Fragment() {
 
