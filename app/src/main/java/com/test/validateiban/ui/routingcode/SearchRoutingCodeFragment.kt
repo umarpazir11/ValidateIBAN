@@ -11,7 +11,9 @@ import com.test.validateiban.base.BaseFragment
 import com.test.validateiban.databinding.FragmentRoutingCodesBinding
 import com.test.validateiban.ui.routingcode.model.Bic
 
-
+/**
+ * To show list of all corresponding banks
+ */
 class SearchRoutingCodeFragment : BaseFragment<SearchRoutingCodeViewModel, FragmentRoutingCodesBinding>(),
     RoutingCodesRecyclerViewAdapter.RoutingCodesItemListener {
 

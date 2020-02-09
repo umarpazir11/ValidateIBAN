@@ -14,7 +14,8 @@ import javax.inject.Inject
 /**
  * File Description
  *
- * Author: Umer
+ * Base for all activities
+ * @param D is the layout view binding
  */
  abstract class BaseActivity<D : ViewDataBinding> : DaggerAppCompatActivity(), HasSupportFragmentInjector {
 

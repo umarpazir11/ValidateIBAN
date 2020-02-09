@@ -6,6 +6,9 @@ import com.test.validateiban.ui.postcode.model.PostCodeResponse
 import io.reactivex.Observable
 import retrofit2.http.*
 
+/**
+ * API calls interface
+ */
 interface NetworkServices {
 
 

@@ -6,6 +6,9 @@ import com.test.validateiban.R
 import com.test.validateiban.base.BaseFragment
 import com.test.validateiban.databinding.PostCodeFragmentBinding
 
+/**
+ * To validate user given Postcode
+ */
 class PostCodeFragment : BaseFragment<PostCodeViewModel,PostCodeFragmentBinding>() {
 
     companion object {

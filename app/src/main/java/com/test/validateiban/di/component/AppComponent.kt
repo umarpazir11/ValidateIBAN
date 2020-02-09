@@ -11,7 +11,11 @@ import dagger.BindsInstance
 import dagger.Component
 import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
-
+/**
+ * File Description
+ *
+ * All modules
+ */
 @Singleton
 @Component(modules = [AndroidSupportInjectionModule::class, NetModule::class, ActivityBuilderModule::class,
     RepositoryModule::class, ViewModelModule::class, RxJavaModule::class])

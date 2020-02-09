@@ -6,6 +6,9 @@ import com.test.validateiban.R
 import com.test.validateiban.base.BaseFragment
 import com.test.validateiban.databinding.BicIbanFragmentBinding
 
+/**
+ * To validate user given IBAN and Bic number
+ */
 class BicIBANFragment : BaseFragment<BicIbanViewModel, BicIbanFragmentBinding>() {
 
     companion object {
